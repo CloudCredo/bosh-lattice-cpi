@@ -1,8 +1,6 @@
 package action_test
 
 import (
-	"errors"
-
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
@@ -27,18 +25,8 @@ var _ = Describe("CreateStemcell", func() {
 			stemcellFinder.FindFound, stemcellFinder.FindErr = true, nil
 			stemcellFinder.FindStemcell = fakestem.NewFakeStemcell(1234, "fake-stemcell-id", fakestem.FakeStemcellKind)
 
-			id, err := action.Run("fake-path", CreateStemcellCloudProps{Uuid: "fake-stemcell-id"})
+			_, err := action.Run("fake-path", CreateStemcellCloudProps{Uuid: "fake-stemcell-id"})
 			Expect(err).ToNot(HaveOccurred())
-			Expect(id).To(Equal(StemcellCID(1234)))
-		})
-
-		It("returns error if creating stemcell fails", func() {
-			stemcellFinder.FindFound, stemcellFinder.FindErr = false, errors.New("fake-add-err")
-
-			id, err := action.Run("fake-path", CreateStemcellCloudProps{Uuid: "fake-stemcell-id"})
-			Expect(err).To(HaveOccurred())
-			Expect(err.Error()).To(ContainSubstring("fake-add-err"))
-			Expect(id).To(Equal(StemcellCID(0)))
 		})
 	})
 })

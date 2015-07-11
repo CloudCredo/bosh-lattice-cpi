@@ -50,8 +50,8 @@ func NewConcreteFactory(softLayerClient sl.Client, options ConcreteFactoryOption
 	return concreteFactory{
 		availableActions: map[string]Action{
 			// Stemcell management
-			"create_stemcell": NewCreateStemcell(stemcellFinder),
-			"delete_stemcell": NewDeleteStemcell(stemcellFinder),
+			"create_stemcell": NewCreateStemcell(),
+			"delete_stemcell": NewDeleteStemcell(),
 
 			// VM management
 			"create_vm":          NewCreateVM(stemcellFinder, vmCreator),
