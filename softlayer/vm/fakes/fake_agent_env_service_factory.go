@@ -1,7 +1,7 @@
 package fakes
 
 import (
-	bslcvm "github.com/maximilien/bosh-softlayer-cpi/softlayer/vm"
+	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 type FakeAgentEnvServiceFactory struct {

@@ -6,9 +6,9 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/maximilien/bosh-softlayer-cpi/action"
+	. "github.com/CloudCredo/bosh-lattice-cpi/action"
 
-	fakedisk "github.com/maximilien/bosh-softlayer-cpi/softlayer/disk/fakes"
+	fakedisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk/fakes"
 )
 
 var _ = Describe("DeleteDisk", func() {

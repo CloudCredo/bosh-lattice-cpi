@@ -1,8 +1,8 @@
 package vm
 
 import (
-	bslcdisk "github.com/maximilien/bosh-softlayer-cpi/softlayer/disk"
-	bslcstem "github.com/maximilien/bosh-softlayer-cpi/softlayer/stemcell"
+	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
+	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
 
 	sldatatypes "github.com/maximilien/softlayer-go/data_types"
 )

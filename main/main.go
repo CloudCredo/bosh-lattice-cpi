@@ -9,9 +9,9 @@ import (
 
 	slclient "github.com/maximilien/softlayer-go/client"
 
-	bslcaction "github.com/maximilien/bosh-softlayer-cpi/action"
-	bslcdisp "github.com/maximilien/bosh-softlayer-cpi/api/dispatcher"
-	bslctrans "github.com/maximilien/bosh-softlayer-cpi/api/transport"
+	bslcaction "github.com/CloudCredo/bosh-lattice-cpi/action"
+	bslcdisp "github.com/CloudCredo/bosh-lattice-cpi/api/dispatcher"
+	bslctrans "github.com/CloudCredo/bosh-lattice-cpi/api/transport"
 )
 
 const mainLogTag = "main"

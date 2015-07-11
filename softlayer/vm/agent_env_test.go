@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/maximilien/bosh-softlayer-cpi/softlayer/vm"
+	. "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 var _ = Describe("AgentEnv", func() {

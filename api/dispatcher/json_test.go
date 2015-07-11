@@ -6,13 +6,13 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/maximilien/bosh-softlayer-cpi/api/dispatcher"
+	. "github.com/CloudCredo/bosh-lattice-cpi/api/dispatcher"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	fakeaction "github.com/maximilien/bosh-softlayer-cpi/action/fakes"
-	fakedisp "github.com/maximilien/bosh-softlayer-cpi/api/dispatcher/fakes"
-	fakeapi "github.com/maximilien/bosh-softlayer-cpi/api/fakes"
+	fakeaction "github.com/CloudCredo/bosh-lattice-cpi/action/fakes"
+	fakedisp "github.com/CloudCredo/bosh-lattice-cpi/api/dispatcher/fakes"
+	fakeapi "github.com/CloudCredo/bosh-lattice-cpi/api/fakes"
 )
 
 var _ = Describe("JSON", func() {
@@ -49,7 +49,7 @@ var _ = Describe("JSON", func() {
 				dispatcher.Dispatch([]byte(`{
           "method":"fake-action",
           "arguments":[
-            123, 
+            123,
             "fake-arg",
             [123, "fake-arg"],
             {"fake-arg2-key":"fake-arg2-value"}

@@ -8,9 +8,9 @@ import (
 
 	fakesys "github.com/cloudfoundry/bosh-utils/system/fakes"
 
-	. "github.com/maximilien/bosh-softlayer-cpi/main"
+	. "github.com/CloudCredo/bosh-lattice-cpi/main"
 
-	bslcaction "github.com/maximilien/bosh-softlayer-cpi/action"
+	bslcaction "github.com/CloudCredo/bosh-lattice-cpi/action"
 )
 
 var validSoftLayerConfig = SoftLayerConfig{

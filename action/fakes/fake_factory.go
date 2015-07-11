@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	bslcaction "github.com/maximilien/bosh-softlayer-cpi/action"
+	bslcaction "github.com/CloudCredo/bosh-lattice-cpi/action"
 )
 
 type FakeFactory struct {

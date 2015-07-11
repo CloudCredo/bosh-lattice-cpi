@@ -3,8 +3,8 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcdisk "github.com/maximilien/bosh-softlayer-cpi/softlayer/disk"
-	bslcvm "github.com/maximilien/bosh-softlayer-cpi/softlayer/vm"
+	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
+	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 type AttachDisk struct {

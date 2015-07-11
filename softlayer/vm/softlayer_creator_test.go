@@ -4,15 +4,15 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/maximilien/bosh-softlayer-cpi/softlayer/vm"
+	. "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
 
-	testhelpers "github.com/maximilien/bosh-softlayer-cpi/test_helpers"
+	testhelpers "github.com/CloudCredo/bosh-lattice-cpi/test_helpers"
 
-	fakestem "github.com/maximilien/bosh-softlayer-cpi/softlayer/stemcell/fakes"
-	fakevm "github.com/maximilien/bosh-softlayer-cpi/softlayer/vm/fakes"
+	fakestem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell/fakes"
+	fakevm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm/fakes"
 	fakeslclient "github.com/maximilien/softlayer-go/client/fakes"
 
-	bslcstem "github.com/maximilien/bosh-softlayer-cpi/softlayer/stemcell"
+	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 

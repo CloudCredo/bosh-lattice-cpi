@@ -7,18 +7,18 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/maximilien/bosh-softlayer-cpi/softlayer/vm"
+	. "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	testhelpers "github.com/maximilien/bosh-softlayer-cpi/test_helpers"
+	testhelpers "github.com/CloudCredo/bosh-lattice-cpi/test_helpers"
 
-	bslcdisk "github.com/maximilien/bosh-softlayer-cpi/softlayer/disk"
-	bslcvm "github.com/maximilien/bosh-softlayer-cpi/softlayer/vm"
+	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
+	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
 
-	fakedisk "github.com/maximilien/bosh-softlayer-cpi/softlayer/disk/fakes"
-	fakevm "github.com/maximilien/bosh-softlayer-cpi/softlayer/vm/fakes"
-	fakesutil "github.com/maximilien/bosh-softlayer-cpi/util/fakes"
+	fakedisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk/fakes"
+	fakevm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm/fakes"
+	fakesutil "github.com/CloudCredo/bosh-lattice-cpi/util/fakes"
 	fakeslclient "github.com/maximilien/softlayer-go/client/fakes"
 )
 

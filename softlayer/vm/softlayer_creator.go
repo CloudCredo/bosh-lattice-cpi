@@ -12,10 +12,10 @@ import (
 	sldatatypes "github.com/maximilien/softlayer-go/data_types"
 	sl "github.com/maximilien/softlayer-go/softlayer"
 
-	bslcommon "github.com/maximilien/bosh-softlayer-cpi/softlayer/common"
-	bslcstem "github.com/maximilien/bosh-softlayer-cpi/softlayer/stemcell"
+	bslcommon "github.com/CloudCredo/bosh-lattice-cpi/softlayer/common"
+	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
 
-	util "github.com/maximilien/bosh-softlayer-cpi/util"
+	util "github.com/CloudCredo/bosh-lattice-cpi/util"
 )
 
 const softLayerCreatorLogTag = "SoftLayerCreator"

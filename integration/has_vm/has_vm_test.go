@@ -10,7 +10,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	testhelperscpi "github.com/maximilien/bosh-softlayer-cpi/test_helpers"
+	testhelperscpi "github.com/CloudCredo/bosh-lattice-cpi/test_helpers"
 	slclient "github.com/maximilien/softlayer-go/client"
 	datatypes "github.com/maximilien/softlayer-go/data_types"
 	softlayer "github.com/maximilien/softlayer-go/softlayer"
@@ -104,7 +104,7 @@ var _ = Describe("BOSH Director Level Integration for has_vm", func() {
 
 			outputBytes, err := testhelperscpi.RunCpi(rootTemplatePath, tmpConfigPath, jsonPayload)
 			Expect(err).ToNot(HaveOccurred())
-			
+
 			err = json.Unmarshal(outputBytes, &output)
 			Expect(err).ToNot(HaveOccurred())
 			Expect(output["result"]).To(BeTrue())
@@ -125,7 +125,7 @@ var _ = Describe("BOSH Director Level Integration for has_vm", func() {
 
 			outputBytes, err := testhelperscpi.RunCpi(rootTemplatePath, tmpConfigPath, jsonPayload)
 			Expect(err).ToNot(HaveOccurred())
-			
+
 			err = json.Unmarshal(outputBytes, &output)
 			Expect(err).ToNot(HaveOccurred())
 			Expect(output["result"]).To(BeFalse())
