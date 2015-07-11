@@ -3,14 +3,14 @@ package disk_test
 import (
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	testhelpers "github.com/CloudCredo/bosh-lattice-cpi/test_helpers"
+	testhelpers "github.com/cloudcredo/bosh-lattice-cpi/test_helpers"
 
 	fakeclient "github.com/maximilien/softlayer-go/client/fakes"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
+	. "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
 )
 
 var _ = Describe("SoftLayerCreator", func() {

@@ -6,12 +6,12 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/action"
+	. "github.com/cloudcredo/bosh-lattice-cpi/action"
 
-	fakestem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell/fakes"
-	fakevm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm/fakes"
+	fakestem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell/fakes"
+	fakevm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm/fakes"
 
-	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 
 	sldatatypes "github.com/maximilien/softlayer-go/data_types"
 )

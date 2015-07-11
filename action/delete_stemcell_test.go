@@ -6,9 +6,9 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/action"
+	. "github.com/cloudcredo/bosh-lattice-cpi/action"
 
-	fakestem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell/fakes"
+	fakestem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell/fakes"
 )
 
 var _ = Describe("DeleteStemcell", func() {

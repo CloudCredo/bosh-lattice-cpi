@@ -1,8 +1,8 @@
 package fakes
 
 import (
-	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
-	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
+	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 type FakeCreator struct {

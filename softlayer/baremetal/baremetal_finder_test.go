@@ -4,8 +4,8 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	bm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/baremetal"
-	testhelpers "github.com/CloudCredo/bosh-lattice-cpi/test_helpers"
+	bm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/baremetal"
+	testhelpers "github.com/cloudcredo/bosh-lattice-cpi/test_helpers"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 

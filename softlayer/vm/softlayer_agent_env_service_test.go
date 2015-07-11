@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	//. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	. "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 	fakeslclient "github.com/maximilien/softlayer-go/client/fakes"

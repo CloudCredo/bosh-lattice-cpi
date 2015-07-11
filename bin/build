@@ -4,4 +4,4 @@ set -e
 
 bin=$(dirname $0)
 
-$bin/go build -o $bin/../out/cpi github.com/CloudCredo/bosh-lattice-cpi/main
+$bin/go build -o $bin/../out/cpi github.com/cloudcredo/bosh-lattice-cpi/main

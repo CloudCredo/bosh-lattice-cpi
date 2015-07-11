@@ -1,9 +1,9 @@
 package fakes
 
 import (
-	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
+	bslcdisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
 
-	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 type FakeVM struct {

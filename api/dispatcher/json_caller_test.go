@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/api/dispatcher"
+	. "github.com/cloudcredo/bosh-lattice-cpi/api/dispatcher"
 )
 
 type valueType struct {

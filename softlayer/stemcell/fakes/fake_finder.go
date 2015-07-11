@@ -1,7 +1,7 @@
 package fakes
 
 import (
-	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
+	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
 )
 
 type FakeFinder struct {

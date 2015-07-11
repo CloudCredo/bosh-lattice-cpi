@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	testhelpers "github.com/CloudCredo/bosh-lattice-cpi/test_helpers"
+	testhelpers "github.com/cloudcredo/bosh-lattice-cpi/test_helpers"
 )
 
 var _ = Describe("helper functions for integration tests", func() {

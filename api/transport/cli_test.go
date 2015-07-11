@@ -7,11 +7,11 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/api/transport"
+	. "github.com/cloudcredo/bosh-lattice-cpi/api/transport"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	fakedisp "github.com/CloudCredo/bosh-lattice-cpi/api/dispatcher/fakes"
+	fakedisp "github.com/cloudcredo/bosh-lattice-cpi/api/dispatcher/fakes"
 )
 
 type FakeReader struct {

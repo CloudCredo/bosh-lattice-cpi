@@ -6,9 +6,9 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/action"
+	. "github.com/cloudcredo/bosh-lattice-cpi/action"
 
-	fakevm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm/fakes"
+	fakevm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm/fakes"
 )
 
 var _ = Describe("DeleteVM", func() {

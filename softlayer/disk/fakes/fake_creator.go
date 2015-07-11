@@ -1,7 +1,7 @@
 package fakes
 
 import (
-	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
+	bslcdisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
 )
 
 type FakeCreator struct {

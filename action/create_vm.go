@@ -3,8 +3,8 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
-	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
+	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 type CreateVM struct {

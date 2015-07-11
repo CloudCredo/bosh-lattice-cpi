@@ -6,10 +6,10 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/action"
+	. "github.com/cloudcredo/bosh-lattice-cpi/action"
 
-	fakedisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk/fakes"
-	fakevm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm/fakes"
+	fakedisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk/fakes"
+	fakevm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm/fakes"
 )
 
 var _ = Describe("DetachDisk", func() {

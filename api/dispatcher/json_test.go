@@ -6,13 +6,13 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/api/dispatcher"
+	. "github.com/cloudcredo/bosh-lattice-cpi/api/dispatcher"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	fakeaction "github.com/CloudCredo/bosh-lattice-cpi/action/fakes"
-	fakedisp "github.com/CloudCredo/bosh-lattice-cpi/api/dispatcher/fakes"
-	fakeapi "github.com/CloudCredo/bosh-lattice-cpi/api/fakes"
+	fakeaction "github.com/cloudcredo/bosh-lattice-cpi/action/fakes"
+	fakedisp "github.com/cloudcredo/bosh-lattice-cpi/api/dispatcher/fakes"
+	fakeapi "github.com/cloudcredo/bosh-lattice-cpi/api/fakes"
 )
 
 var _ = Describe("JSON", func() {

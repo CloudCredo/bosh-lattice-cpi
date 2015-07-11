@@ -1,7 +1,7 @@
 package fakes
 
 import (
-	bslcaction "github.com/CloudCredo/bosh-lattice-cpi/action"
+	bslcaction "github.com/cloudcredo/bosh-lattice-cpi/action"
 )
 
 type FakeCaller struct {

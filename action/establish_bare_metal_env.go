@@ -6,7 +6,7 @@ import (
 	"time"
 
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
-	bm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/baremetal"
+	bm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/baremetal"
 )
 
 const (

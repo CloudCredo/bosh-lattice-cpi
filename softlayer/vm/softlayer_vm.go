@@ -11,10 +11,10 @@ import (
 
 	sl "github.com/maximilien/softlayer-go/softlayer"
 
-	bslcommon "github.com/CloudCredo/bosh-lattice-cpi/softlayer/common"
-	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
+	bslcommon "github.com/cloudcredo/bosh-lattice-cpi/softlayer/common"
+	bslcdisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
 
-	util "github.com/CloudCredo/bosh-lattice-cpi/util"
+	util "github.com/cloudcredo/bosh-lattice-cpi/util"
 	datatypes "github.com/maximilien/softlayer-go/data_types"
 )
 

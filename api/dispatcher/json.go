@@ -5,8 +5,8 @@ import (
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	bslcaction "github.com/CloudCredo/bosh-lattice-cpi/action"
-	bslcapi "github.com/CloudCredo/bosh-lattice-cpi/api"
+	bslcaction "github.com/cloudcredo/bosh-lattice-cpi/action"
+	bslcapi "github.com/cloudcredo/bosh-lattice-cpi/api"
 )
 
 const (

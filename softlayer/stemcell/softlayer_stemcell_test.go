@@ -4,11 +4,11 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
+	. "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	testhelpers "github.com/CloudCredo/bosh-lattice-cpi/test_helpers"
+	testhelpers "github.com/cloudcredo/bosh-lattice-cpi/test_helpers"
 	fakesslclient "github.com/maximilien/softlayer-go/client/fakes"
 )
 

@@ -7,7 +7,7 @@ import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	bslcdisp "github.com/CloudCredo/bosh-lattice-cpi/api/dispatcher"
+	bslcdisp "github.com/cloudcredo/bosh-lattice-cpi/api/dispatcher"
 )
 
 const cliLogTag = "CLI"

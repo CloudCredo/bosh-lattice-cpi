@@ -6,10 +6,10 @@ import (
 
 	sl "github.com/maximilien/softlayer-go/softlayer"
 
-	bslcbm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/baremetal"
-	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
-	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
-	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	bslcbm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/baremetal"
+	bslcdisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
+	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
+	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 type concreteFactory struct {

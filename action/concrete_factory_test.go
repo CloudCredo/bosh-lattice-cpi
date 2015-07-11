@@ -4,7 +4,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/action"
+	. "github.com/cloudcredo/bosh-lattice-cpi/action"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
@@ -13,9 +13,9 @@ import (
 
 	fakeslclient "github.com/maximilien/softlayer-go/client/fakes"
 
-	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
-	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
-	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	bslcdisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
+	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
+	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 var _ = Describe("concreteFactory", func() {

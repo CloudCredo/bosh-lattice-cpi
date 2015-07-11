@@ -1,4 +1,4 @@
-bosh-lattice-cpi [![Build Status](https://travis-ci.org/CloudCredo/bosh-lattice-cpi.svg?branch=master)](https://travis-ci.org/CloudCredo/bosh-lattice-cpi#)
+bosh-lattice-cpi [![Build Status](https://travis-ci.org/cloudcredo/bosh-lattice-cpi.svg?branch=master)](https://travis-ci.org/cloudcredo/bosh-lattice-cpi#)
 ==================
 
 An external [BOSH](http://github.com/cloudfoundry/bosh) CPI (cloud provider interface) for the [SoftLayer](http://www.softlayer.com) cloud and its [API](http://sldn.softlayer.com/article/SoftLayer-API-Overview)
@@ -19,10 +19,10 @@ TBD
 Clone this repo and build it. Using the following commands on a Linux or Mac OS X system:
 
 ```
-$ mkdir -p bosh-lattice-cpi/src/github.com/CloudCredo
+$ mkdir -p bosh-lattice-cpi/src/github.com/cloudcredo
 $ export GOPATH=$(pwd)/bosh-lattice-cpi:$GOPATH
-$ cd bosh-lattice-cpi/src/github.com/CloudCredo
-$ git clone https://github.com/CloudCredo/bosh-lattice-cpi.git
+$ cd bosh-lattice-cpi/src/github.com/cloudcredo
+$ git clone https://github.com/cloudcredo/bosh-lattice-cpi.git
 $ cd bosh-lattice-cpi
 $ ./bin/build
 $ ./bin/test-unit
@@ -33,7 +33,7 @@ $ ./bin/test-integration
 
 NOTE: if you get any dependency errors, then use `go get path/to/dependency` to get it, e.g., `go get github.com/onsi/ginkgo` and `go get github.com/onsi/gomega`
 
-The executable output should now be located in: `out/cpi`. You will need to package this into a BOSH release. The easiest way is to use the [bosh-lattice-cpi-release](https://github.com/CloudCredo/bosh-lattice-cpi-release) project.
+The executable output should now be located in: `out/cpi`. You will need to package this into a BOSH release. The easiest way is to use the [bosh-lattice-cpi-release](https://github.com/cloudcredo/bosh-lattice-cpi-release) project.
 
 ### Running Tests
 -----------------
@@ -103,7 +103,7 @@ SWEET SUITE SUCCESS
 ### Managing dependencies
 -------------------------
 
-* All dependencies managed via [Godep](https://github.com/tools/godep). See [Godeps/_workspace](https://github.com/CloudCredo/bosh-lattice-cpi/tree/master/Godeps/_workspace) directory on master
+* All dependencies managed via [Godep](https://github.com/tools/godep). See [Godeps/_workspace](https://github.com/cloudcredo/bosh-lattice-cpi/tree/master/Godeps/_workspace) directory on master
 
 #### Short `godep` Guide
 * If you ever import a new package `foo/bar` (after you `go get foo/bar`, so that foo/bar is in `$GOPATH`), you can type `godep save ./...` to add it to the `Godeps` directory.

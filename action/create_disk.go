@@ -3,7 +3,7 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcdisk "github.com/CloudCredo/bosh-lattice-cpi/softlayer/disk"
+	bslcdisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
 )
 
 type CreateDisk struct {

@@ -1,7 +1,7 @@
 package fakes
 
 import (
-	bslcvm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 )
 
 type FakeFinder struct {

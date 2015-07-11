@@ -3,7 +3,7 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcstem "github.com/CloudCredo/bosh-lattice-cpi/softlayer/stemcell"
+	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
 )
 
 type DeleteStemcell struct {

@@ -4,13 +4,13 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	. "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm"
+	. "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
 
-	testhelpers "github.com/CloudCredo/bosh-lattice-cpi/test_helpers"
+	testhelpers "github.com/cloudcredo/bosh-lattice-cpi/test_helpers"
 
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	fakevm "github.com/CloudCredo/bosh-lattice-cpi/softlayer/vm/fakes"
+	fakevm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm/fakes"
 	fakeslclient "github.com/maximilien/softlayer-go/client/fakes"
 )
 
