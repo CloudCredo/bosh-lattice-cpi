@@ -3,43 +3,31 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 type CreateVM struct {
-	stemcellFinder    bslcstem.Finder
-	vmCreator         bslcvm.Creator
-	vmCloudProperties bslcvm.VMCloudProperties
+	vmCreator         bltcvm.Creator
+	vmCloudProperties bltcvm.VMCloudProperties
 }
 
 type Environment map[string]interface{}
 
-func NewCreateVM(stemcellFinder bslcstem.Finder, vmCreator bslcvm.Creator) CreateVM {
+func NewCreateVM(vmCreator bltcvm.Creator) CreateVM {
 	return CreateVM{
-		stemcellFinder:    stemcellFinder,
 		vmCreator:         vmCreator,
-		vmCloudProperties: bslcvm.VMCloudProperties{},
+		vmCloudProperties: bltcvm.VMCloudProperties{},
 	}
 }
 
-func (a CreateVM) Run(agentID string, stemcellCID StemcellCID, cloudProps bslcvm.VMCloudProperties, networks Networks, diskIDs []DiskCID, env Environment) (VMCID, error) {
+func (a CreateVM) Run(agentID string, cloudProps bltcvm.VMCloudProperties, networks Networks, env Environment) (VMCID, error) {
 	a.updateCloudProperties(cloudProps)
-
-	stemcell, found, err := a.stemcellFinder.FindById(int(stemcellCID))
-	if err != nil {
-		return 0, bosherr.WrapErrorf(err, "Finding stemcell '%s'", stemcellCID)
-	}
-
-	if !found {
-		return 0, bosherr.Errorf("Expected to find stemcell '%s'", stemcellCID)
-	}
 
 	vmNetworks := networks.AsVMNetworks()
 
-	vmEnv := bslcvm.Environment(env)
+	vmEnv := bltcvm.Environment(env)
 
-	vm, err := a.vmCreator.Create(agentID, stemcell, cloudProps, vmNetworks, vmEnv)
+	vm, err := a.vmCreator.Create(agentID, cloudProps, vmNetworks, vmEnv)
 	if err != nil {
 		return 0, bosherr.WrapErrorf(err, "Creating VM with agent ID '%s'", agentID)
 	}
@@ -47,20 +35,6 @@ func (a CreateVM) Run(agentID string, stemcellCID StemcellCID, cloudProps bslcvm
 	return VMCID(vm.ID()), nil
 }
 
-func (a CreateVM) updateCloudProperties(cloudProps bslcvm.VMCloudProperties) {
-	if cloudProps.StartCpus > 1 {
-		a.vmCloudProperties.StartCpus = cloudProps.StartCpus
-	}
+func (a CreateVM) updateCloudProperties(cloudProps bltcvm.VMCloudProperties) {
 
-	if cloudProps.MaxMemory > 1024 {
-		a.vmCloudProperties.MaxMemory = cloudProps.MaxMemory
-	}
-
-	if cloudProps.Datacenter.Name != a.vmCloudProperties.Datacenter.Name {
-		a.vmCloudProperties.Datacenter.Name = cloudProps.Datacenter.Name
-	}
-
-	if len(cloudProps.SshKeys) > 0 {
-		a.vmCloudProperties.SshKeys = cloudProps.SshKeys
-	}
 }

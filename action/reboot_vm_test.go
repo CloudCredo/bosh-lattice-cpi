@@ -8,7 +8,7 @@ import (
 
 	. "github.com/cloudcredo/bosh-lattice-cpi/action"
 
-	fakevm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm/fakes"
+	fakevm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm/fakes"
 )
 
 var _ = Describe("RebootVM", func() {

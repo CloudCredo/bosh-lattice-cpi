@@ -6,7 +6,7 @@ import (
 
 	. "github.com/cloudcredo/bosh-lattice-cpi/action"
 
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 var _ = Describe("Networks", func() {
@@ -39,8 +39,8 @@ var _ = Describe("Networks", func() {
 
 	Describe("AsVMNetworks", func() {
 		It("returns networks for VM", func() {
-			expectedVMNetworks := bslcvm.Networks{
-				"fake-net1-name": bslcvm.Network{
+			expectedVMNetworks := bltcvm.Networks{
+				"fake-net1-name": bltcvm.Network{
 					Type: "fake-net1-type",
 
 					IP:      "fake-net1-ip",
@@ -54,7 +54,7 @@ var _ = Describe("Networks", func() {
 						"fake-net1-cp-key": "fake-net1-cp-value",
 					},
 				},
-				"fake-net2-name": bslcvm.Network{
+				"fake-net2-name": bltcvm.Network{
 					Type: "fake-net2-type",
 					IP:   "fake-net2-ip",
 				},

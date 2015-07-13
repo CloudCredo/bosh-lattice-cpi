@@ -8,8 +8,8 @@ import (
 	. "github.com/onsi/gomega"
 
 	action "github.com/cloudcredo/bosh-lattice-cpi/action"
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
-	fakevm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm/fakes"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
+	fakevm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm/fakes"
 )
 
 var _ = Describe("SetVMMetadata", func() {
@@ -17,7 +17,7 @@ var _ = Describe("SetVMMetadata", func() {
 		vmID     action.VMCID
 		vmFinder *fakevm.FakeFinder
 		action   SetVMMetadata
-		metadata bslcvm.VMMetadata
+		metadata bltcvm.VMMetadata
 	)
 
 	BeforeEach(func() {
@@ -31,7 +31,7 @@ var _ = Describe("SetVMMetadata", func() {
 		  "tag3": "blue"
 		}`)
 
-		metadata = bslcvm.VMMetadata{}
+		metadata = bltcvm.VMMetadata{}
 		err := json.Unmarshal(metadataBytes, &metadata)
 		Expect(err).ToNot(HaveOccurred())
 	})
@@ -57,7 +57,7 @@ var _ = Describe("SetVMMetadata", func() {
 			Context("when metadata is not valid", func() {
 				Context("when metadata is empty", func() {
 					It("does not do anything and returns no error", func() {
-						_, err := action.Run(vmID, bslcvm.VMMetadata{})
+						_, err := action.Run(vmID, bltcvm.VMMetadata{})
 						Expect(err).ToNot(HaveOccurred())
 					})
 				})
@@ -70,7 +70,7 @@ var _ = Describe("SetVMMetadata", func() {
   							"tag3": false
 						}`)
 
-						metadata = bslcvm.VMMetadata{}
+						metadata = bltcvm.VMMetadata{}
 						err := json.Unmarshal(metadataBytes, &metadata)
 						Expect(err).ToNot(HaveOccurred())
 					})

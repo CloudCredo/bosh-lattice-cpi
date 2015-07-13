@@ -7,7 +7,7 @@ import (
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 	boshsys "github.com/cloudfoundry/bosh-utils/system"
 
-	slclient "github.com/maximilien/softlayer-go/client"
+	ltc "github.com/cloudcredo/bosh-lattice-cpi/lattice/client"
 
 	bslcaction "github.com/cloudcredo/bosh-lattice-cpi/action"
 	bslcdisp "github.com/cloudcredo/bosh-lattice-cpi/api/dispatcher"
@@ -55,10 +55,10 @@ func basicDeps() (boshlog.Logger, boshsys.FileSystem, boshsys.CmdRunner) {
 }
 
 func buildDispatcher(config Config, logger boshlog.Logger, fs boshsys.FileSystem, cmdRunner boshsys.CmdRunner) bslcdisp.Dispatcher {
-	softLayerClient := slclient.NewSoftLayerClient(config.SoftLayer.Username, config.SoftLayer.ApiKey)
+	latticeClient := ltc.NewLatticeClient()
 
 	actionFactory := bslcaction.NewConcreteFactory(
-		softLayerClient,
+		latticeClient,
 		config.Actions,
 		logger,
 	)

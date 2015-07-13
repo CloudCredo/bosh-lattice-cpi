@@ -3,13 +3,13 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 type ConcreteFactoryOptions struct {
 	StemcellsDir string
 
-	Agent bslcvm.AgentOptions
+	Agent bltcvm.AgentOptions
 }
 
 func (o ConcreteFactoryOptions) Validate() error {

@@ -4,46 +4,27 @@ import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 
-	sl "github.com/maximilien/softlayer-go/softlayer"
-
-	bslcbm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/baremetal"
-	bslcdisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
-	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	ltc "github.com/cloudcredo/bosh-lattice-cpi/lattice/client"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 type concreteFactory struct {
 	availableActions map[string]Action
 }
 
-func NewConcreteFactory(softLayerClient sl.Client, options ConcreteFactoryOptions, logger boshlog.Logger) concreteFactory {
-	stemcellFinder := bslcstem.NewSoftLayerFinder(softLayerClient, logger)
+func NewConcreteFactory(latticeClient ltc.Client, options ConcreteFactoryOptions, logger boshlog.Logger) concreteFactory {
+	agentEnvServiceFactory := bltcvm.NewLatticeAgentEnvServiceFactory(latticeClient, logger)
 
-	agentEnvServiceFactory := bslcvm.NewSoftLayerAgentEnvServiceFactory(softLayerClient, logger)
-
-	vmCreator := bslcvm.NewSoftLayerCreator(
-		softLayerClient,
+	vmCreator := bltcvm.NewLatticeCreator(
+		latticeClient,
 		agentEnvServiceFactory,
 		options.Agent,
 		logger,
 	)
 
-	vmFinder := bslcvm.NewSoftLayerFinder(
-		softLayerClient,
+	vmFinder := bltcvm.NewLatticeFinder(
+		latticeClient,
 		agentEnvServiceFactory,
-		logger,
-	)
-
-	bmCreator := bslcbm.NewBaremetalCreator(softLayerClient, logger)
-	bmFinder := bslcbm.NewBaremetalFinder(softLayerClient, logger)
-
-	diskCreator := bslcdisk.NewSoftLayerDiskCreator(
-		softLayerClient,
-		logger,
-	)
-
-	diskFinder := bslcdisk.NewSoftLayerDiskFinder(
-		softLayerClient,
 		logger,
 	)
 
@@ -54,22 +35,18 @@ func NewConcreteFactory(softLayerClient sl.Client, options ConcreteFactoryOption
 			"delete_stemcell": NewDeleteStemcell(),
 
 			// VM management
-			"create_vm":          NewCreateVM(stemcellFinder, vmCreator),
+			"create_vm":          NewCreateVM(vmCreator),
 			"delete_vm":          NewDeleteVM(vmFinder),
 			"has_vm":             NewHasVM(vmFinder),
 			"reboot_vm":          NewRebootVM(vmFinder),
 			"set_vm_metadata":    NewSetVMMetadata(vmFinder),
 			"configure_networks": NewConfigureNetworks(vmFinder),
 
-			// Disk management
-			"create_disk": NewCreateDisk(diskCreator),
-			"delete_disk": NewDeleteDisk(diskFinder),
-			"attach_disk": NewAttachDisk(vmFinder, diskFinder),
-			"detach_disk": NewDetachDisk(vmFinder, diskFinder),
-
-			"establish_bare_metal_env": NewEstablishBareMetalEnv(bmCreator, bmFinder),
-
 			// Not implemented (disk related):
+			//	 create_disk
+			//	 delete_disk
+			//	 attach_disk
+			//	 detach_disk
 			//   snapshot_disk
 			//   delete_snapshot
 			//   get_disks

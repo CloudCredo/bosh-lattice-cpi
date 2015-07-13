@@ -3,14 +3,14 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 type RebootVM struct {
-	vmFinder bslcvm.Finder
+	vmFinder bltcvm.Finder
 }
 
-func NewRebootVM(vmFinder bslcvm.Finder) RebootVM {
+func NewRebootVM(vmFinder bltcvm.Finder) RebootVM {
 	return RebootVM{vmFinder: vmFinder}
 }
 

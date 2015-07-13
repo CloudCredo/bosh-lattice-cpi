@@ -3,14 +3,14 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 type HasVM struct {
-	vmFinder bslcvm.Finder
+	vmFinder bltcvm.Finder
 }
 
-func NewHasVM(vmFinder bslcvm.Finder) HasVM {
+func NewHasVM(vmFinder bltcvm.Finder) HasVM {
 	return HasVM{vmFinder: vmFinder}
 }
 

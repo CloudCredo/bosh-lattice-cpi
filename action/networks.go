@@ -1,7 +1,7 @@
 package action
 
 import (
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 type Networks map[string]Network
@@ -21,11 +21,11 @@ type Network struct {
 	CloudProperties map[string]interface{} `json:"cloud_properties"`
 }
 
-func (ns Networks) AsVMNetworks() bslcvm.Networks {
-	networks := bslcvm.Networks{}
+func (ns Networks) AsVMNetworks() bltcvm.Networks {
+	networks := bltcvm.Networks{}
 
 	for netName, network := range ns {
-		networks[netName] = bslcvm.Network{
+		networks[netName] = bltcvm.Network{
 			Type: network.Type,
 
 			IP:      network.IP,

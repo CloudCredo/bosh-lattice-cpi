@@ -3,14 +3,14 @@ package action
 import (
 	bosherr "github.com/cloudfoundry/bosh-utils/errors"
 
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 type DeleteVM struct {
-	vmFinder bslcvm.Finder
+	vmFinder bltcvm.Finder
 }
 
-func NewDeleteVM(vmFinder bslcvm.Finder) DeleteVM {
+func NewDeleteVM(vmFinder bltcvm.Finder) DeleteVM {
 	return DeleteVM{vmFinder: vmFinder}
 }
 

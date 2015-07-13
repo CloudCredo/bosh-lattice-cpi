@@ -15,7 +15,7 @@ networks:
 resource_pools:
 - name: default
   stemcell:
-    name: bosh-softlayer-xen-ubuntu-trusty-go_agent
+    name: bosh-lattice-xen-ubuntu-trusty-go_agent
     version: latest
   cloud_properties:
     startCpus: 1

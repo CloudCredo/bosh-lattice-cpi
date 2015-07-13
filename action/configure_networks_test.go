@@ -8,22 +8,22 @@ import (
 
 	. "github.com/cloudcredo/bosh-lattice-cpi/action"
 
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 
-	fakevm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm/fakes"
+	fakevm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm/fakes"
 )
 
 var _ = Describe("ConfigureNetworks", func() {
 	var (
 		vmFinder *fakevm.FakeFinder
 		action   ConfigureNetworks
-		networks bslcvm.Networks
+		networks bltcvm.Networks
 	)
 
 	BeforeEach(func() {
 		vmFinder = &fakevm.FakeFinder{}
 		action = NewConfigureNetworks(vmFinder)
-		networks = bslcvm.Networks{}
+		networks = bltcvm.Networks{}
 	})
 
 	Describe("Run", func() {

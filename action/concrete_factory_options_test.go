@@ -5,7 +5,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	. "github.com/cloudcredo/bosh-lattice-cpi/action"
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 var _ = Describe("ConcreteFactoryOptions", func() {
@@ -15,11 +15,11 @@ var _ = Describe("ConcreteFactoryOptions", func() {
 		validOptions = ConcreteFactoryOptions{
 			StemcellsDir: "/tmp/stemcells",
 
-			Agent: bslcvm.AgentOptions{
+			Agent: bltcvm.AgentOptions{
 				Mbus: "fake-mbus",
 				NTP:  []string{},
 
-				Blobstore: bslcvm.BlobstoreOptions{
+				Blobstore: bltcvm.BlobstoreOptions{
 					Type: "fake-blobstore-type",
 				},
 			},

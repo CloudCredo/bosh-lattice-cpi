@@ -11,16 +11,14 @@ import (
 	fakecmd "github.com/cloudfoundry/bosh-utils/fileutil/fakes"
 	fakesys "github.com/cloudfoundry/bosh-utils/system/fakes"
 
-	fakeslclient "github.com/maximilien/softlayer-go/client/fakes"
+	fakeltcclient "github.com/cloudcredo/bosh-lattice-cpi/lattice/client/fakes"
 
-	bslcdisk "github.com/cloudcredo/bosh-lattice-cpi/softlayer/disk"
-	bslcstem "github.com/cloudcredo/bosh-lattice-cpi/softlayer/stemcell"
-	bslcvm "github.com/cloudcredo/bosh-lattice-cpi/softlayer/vm"
+	bltcvm "github.com/cloudcredo/bosh-lattice-cpi/lattice/vm"
 )
 
 var _ = Describe("concreteFactory", func() {
 	var (
-		softLayerClient *fakeslclient.FakeSoftLayerClient
+		latticeClient   *fakeltcclient.FakeLatticeClient
 		fs              *fakesys.FakeFileSystem
 		cmdRunner       *fakesys.FakeCmdRunner
 		compressor      *fakecmd.FakeCompressor
@@ -34,33 +32,30 @@ var _ = Describe("concreteFactory", func() {
 	)
 
 	var (
-		agentEnvServiceFactory bslcvm.AgentEnvServiceFactory
+		agentEnvServiceFactory bltcvm.AgentEnvServiceFactory
 
-		stemcellFinder bslcstem.Finder
-		vmFinder       bslcvm.Finder
+		vmFinder       bltcvm.Finder
 	)
 
 	BeforeEach(func() {
-		softLayerClient = fakeslclient.NewFakeSoftLayerClient("fake-username", "fake-api-key")
+		latticeClient = fakeltcclient.NewFakeLatticeClient()
 		fs = fakesys.NewFakeFileSystem()
 		cmdRunner = fakesys.NewFakeCmdRunner()
 		compressor = fakecmd.NewFakeCompressor()
 		logger = boshlog.NewLogger(boshlog.LevelNone)
 
 		factory = NewConcreteFactory(
-			softLayerClient,
+			latticeClient,
 			options,
 			logger,
 		)
 	})
 
 	BeforeEach(func() {
-		agentEnvServiceFactory = bslcvm.NewSoftLayerAgentEnvServiceFactory(softLayerClient, logger)
+		agentEnvServiceFactory = bltcvm.NewLatticeAgentEnvServiceFactory(latticeClient, logger)
 
-		stemcellFinder = bslcstem.NewSoftLayerFinder(softLayerClient, logger)
-
-		vmFinder = bslcvm.NewSoftLayerFinder(
-			softLayerClient,
+		vmFinder = bltcvm.NewLatticeFinder(
+			latticeClient,
 			agentEnvServiceFactory,
 			logger,
 		)
@@ -68,22 +63,20 @@ var _ = Describe("concreteFactory", func() {
 
 	Context("Stemcell methods", func() {
 		It("create_stemcell", func() {
-			action, err := factory.Create("create_stemcell")
+			_, err := factory.Create("create_stemcell")
 			Expect(err).ToNot(HaveOccurred())
-			Expect(action).To(Equal(NewCreateStemcell(stemcellFinder)))
 		})
 
 		It("delete_stemcell", func() {
-			action, err := factory.Create("delete_stemcell")
+			_, err := factory.Create("delete_stemcell")
 			Expect(err).ToNot(HaveOccurred())
-			Expect(action).To(Equal(NewDeleteStemcell(stemcellFinder)))
 		})
 	})
 
 	Context("VM methods", func() {
 		It("create_vm", func() {
-			vmCreator := bslcvm.NewSoftLayerCreator(
-				softLayerClient,
+			vmCreator := bltcvm.NewLatticeCreator(
+				latticeClient,
 				agentEnvServiceFactory,
 				options.Agent,
 				logger,
@@ -91,7 +84,7 @@ var _ = Describe("concreteFactory", func() {
 
 			action, err := factory.Create("create_vm")
 			Expect(err).ToNot(HaveOccurred())
-			Expect(action).To(Equal(NewCreateVM(stemcellFinder, vmCreator)))
+			Expect(action).To(Equal(NewCreateVM(vmCreator)))
 		})
 
 		It("delete_vm", func() {
@@ -125,55 +118,31 @@ var _ = Describe("concreteFactory", func() {
 		})
 	})
 
-	Context("Disk methods", func() {
-		var (
-			vmFinder    bslcvm.Finder
-			diskFinder  bslcdisk.Finder
-			diskCreator bslcdisk.Creator
-		)
-
-		BeforeEach(func() {
-			vmFinder = bslcvm.NewSoftLayerFinder(
-				softLayerClient,
-				agentEnvServiceFactory,
-				logger,
-			)
-			diskFinder = bslcdisk.NewSoftLayerDiskFinder(
-				softLayerClient,
-				logger,
-			)
-			diskCreator = bslcdisk.NewSoftLayerDiskCreator(
-				softLayerClient,
-				logger,
-			)
-		})
-
+	Context("Unsupported methods", func() {
 		It("creates an iSCSI disk", func() {
 			action, err := factory.Create("create_disk")
-			Expect(err).ToNot(HaveOccurred())
-			Expect(action).To(Equal(NewCreateDisk(diskCreator)))
+			Expect(err).To(HaveOccurred())
+			Expect(action).To(BeNil())
 		})
 
 		It("deletes the detached iSCSI disk", func() {
 			action, err := factory.Create("delete_disk")
-			Expect(err).ToNot(HaveOccurred())
-			Expect(action).To(Equal(NewDeleteDisk(diskFinder)))
+			Expect(err).To(HaveOccurred())
+			Expect(action).To(BeNil())
 		})
 
 		It("attaches an iSCSI disk to a virtual guest", func() {
 			action, err := factory.Create("attach_disk")
-			Expect(err).ToNot(HaveOccurred())
-			Expect(action).To(Equal(NewAttachDisk(vmFinder, diskFinder)))
+			Expect(err).To(HaveOccurred())
+			Expect(action).To(BeNil())
 		})
 
 		It("detaches the iSCSI disk from virtual guest", func() {
 			action, err := factory.Create("detach_disk")
-			Expect(err).ToNot(HaveOccurred())
-			Expect(action).To(Equal(NewDetachDisk(vmFinder, diskFinder)))
+			Expect(err).To(HaveOccurred())
+			Expect(action).To(BeNil())
 		})
-	})
 
-	Context("Unsupported methods", func() {
 		It("returns error because CPI machine is not self-aware if action is current_vm_id", func() {
 			action, err := factory.Create("current_vm_id")
 			Expect(err).To(HaveOccurred())

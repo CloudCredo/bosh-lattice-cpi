@@ -11,10 +11,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	testhelperscpi "github.com/cloudcredo/bosh-lattice-cpi/test_helpers"
-	slclient "github.com/maximilien/softlayer-go/client"
-	datatypes "github.com/maximilien/softlayer-go/data_types"
-	softlayer "github.com/maximilien/softlayer-go/softlayer"
-	testhelpers "github.com/maximilien/softlayer-go/test_helpers"
+	ltclient "github.com/cloudcredo/bosh-lattice-cpi/lattice/client"
 )
 
 const configPath = "test_fixtures/cpi_methods/config.json"
@@ -23,15 +20,9 @@ var _ = Describe("BOSH Director Level Integration for has_vm", func() {
 	var (
 		err error
 
-		client softlayer.Client
+		client ltclient.Client
 
 		username, apiKey string
-
-		accountService      softlayer.SoftLayer_Account_Service
-		virtualGuestService softlayer.SoftLayer_Virtual_Guest_Service
-
-		virtualGuest  datatypes.SoftLayer_Virtual_Guest
-		createdSshKey datatypes.SoftLayer_Security_Ssh_Key
 
 		rootTemplatePath, tmpConfigPath, strVGID string
 
@@ -47,7 +38,7 @@ var _ = Describe("BOSH Director Level Integration for has_vm", func() {
 		apiKey = os.Getenv("SL_API_KEY")
 		Expect(apiKey).ToNot(Equal(""), "apiKey cannot be empty, set SL_API_KEY")
 
-		client = slclient.NewSoftLayerClient(username, apiKey)
+		client = ltclient.NewLatticeClient()
 		Expect(client).ToNot(BeNil())
 
 		accountService, err = testhelpers.CreateAccountService()
